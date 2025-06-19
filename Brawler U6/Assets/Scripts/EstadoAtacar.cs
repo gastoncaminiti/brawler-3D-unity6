@@ -5,6 +5,11 @@ public class EstadoAtacar : Estado
     [SerializeField]
     private Animator m_Animator;
     
+    
+    public EstadoAtacar(MaquinaEstado maquinaEstado) : base(maquinaEstado)
+    {
+    }
+
     public override void Iniciar()
     {
         AnimatorStateInfo stateInfo = m_Animator.GetCurrentAnimatorStateInfo(0);
@@ -14,7 +19,7 @@ public class EstadoAtacar : Estado
 
         m_Animator.SetTrigger("Atk_K_1"); 
     }
-
+    
     public override void Actualizar(float deltaTime)
     {
         throw new System.NotImplementedException();
@@ -24,4 +29,5 @@ public class EstadoAtacar : Estado
     {
         throw new System.NotImplementedException();
     }
+
 }

@@ -4,6 +4,9 @@ using UnityEngine.InputSystem;
 
 public class MaquinaEstado : MonoBehaviour
 {
+    [field:SerializeField]
+    public Animator Animador { get; private set; }
+    
     private Estado estadoActual;
 
     private void Update()
