@@ -8,5 +8,6 @@ Unity Engine 6000.0.50 LTS
 - [Brawler Animations - Free](https://assetstore.unity.com/packages/3d/animations/brawler-animations-free-305932)
 - [Brawl/Battle Arena Freebie](https://assetstore.unity.com/packages/3d/environments/brawl-battle-arena-freebie-307330)
 - [Creative Characters FREE - Animated Low Poly 3D Models](https://assetstore.unity.com/packages/3d/characters/humanoids/creative-characters-free-animated-low-poly-3d-models-304841)
+- [Lowpoly training dummy](https://assetstore.unity.com/packages/3d/props/lowpoly-training-dummy-202311)
 
 
