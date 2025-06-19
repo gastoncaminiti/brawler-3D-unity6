@@ -192,6 +192,37 @@ Transform:
   - {fileID: 8127670802321558722}
   m_Father: {fileID: 5482622005837578316}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1377667816297223825
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 96273021985009747}
+  m_Layer: 0
+  m_Name: CameraFocus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &96273021985009747
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377667816297223825}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.15, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3760282710441733217}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1721127325553598394
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,6 +753,7 @@ Transform:
   - {fileID: 882022119362084115}
   - {fileID: 2221395199439335722}
   - {fileID: 8977644945131392970}
+  - {fileID: 96273021985009747}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &6451628726547447626
@@ -902,6 +934,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Animador>k__BackingField: {fileID: 6451628726547447626}
+  <Controller>k__BackingField: {fileID: 0}
+  <VelocidadMovimiento>k__BackingField: 5
 --- !u!1 &3505761108929478883
 GameObject:
   m_ObjectHideFlags: 0

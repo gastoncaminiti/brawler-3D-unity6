@@ -11,11 +11,12 @@ public class MoverEstado: Estado
 
     public override void Actualizar(float deltaTime)
     {
-        Vector2 input = maquinaEstado.ObtenerInputMovimiento();
-        
-        Vector3 direccion = new Vector3(input.x, 0f, input.y);
-        maquinaEstado.Animador.SetFloat("Hor", input.x);
-        maquinaEstado.Animador.SetFloat("Vert", input.y);
+
+
+        Vector3 direccion = CalcularMovimiento();
+            
+        maquinaEstado.Animador.SetFloat("Hor",  direccion.x);
+        maquinaEstado.Animador.SetFloat("Vert", direccion.y);
         
         maquinaEstado.Controller.Move(direccion * maquinaEstado.VelocidadMovimiento * deltaTime);
 
@@ -24,5 +25,18 @@ public class MoverEstado: Estado
     public override void Finalizar()
     {
         Debug.Log("FINALIZAR MOVIMIENTO");
+    }
+    
+    private Vector3 CalcularMovimiento()
+    {
+        Vector3 forward = maquinaEstado.CamaraTransform.forward;
+        Vector3 right   = maquinaEstado.CamaraTransform.right;
+
+        forward.y = 0f;
+        right.y = 0f;
+        
+        Vector2 input = maquinaEstado.ObtenerInputMovimiento();
+
+        return forward.normalized * input.y + right.normalized * input.x;
     }
 }

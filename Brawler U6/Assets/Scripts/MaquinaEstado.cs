@@ -9,6 +9,8 @@ public class MaquinaEstado : MonoBehaviour
     [field: SerializeField] public CharacterController Controller { get; private set; }
     [field: SerializeField] public float VelocidadMovimiento { get; private set; } = 5f;
     
+    public Transform CamaraTransform { get; private set; }
+    
     private Estado estadoActual;
     private Vector2 inputMovimiento;
     private bool blockInput; 
@@ -16,6 +18,7 @@ public class MaquinaEstado : MonoBehaviour
     private void Start()
     {
         blockInput = false;
+        CamaraTransform = Camera.main.transform;
         CambiarEstado(new MoverEstado(this));
     }
 

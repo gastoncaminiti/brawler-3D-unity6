@@ -16,7 +16,7 @@ public class EstadoAtacar : Estado
     {
         var estadoActual = maquinaEstado.Animador.GetCurrentAnimatorStateInfo(0); 
 
-        if (estadoActual.normalizedTime >= 1f)
+        if (estadoActual.normalizedTime > 0.65f)
         {
             maquinaEstado.CambiarEstado(new MoverEstado(maquinaEstado));
         }
