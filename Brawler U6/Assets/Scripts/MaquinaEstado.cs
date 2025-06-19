@@ -33,6 +33,7 @@ public class MaquinaEstado : MonoBehaviour
     public void OnAttackState(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
+        
         if (estadoActual?.EsEstado<EstadoAtacar>() == true) return;
         
         CambiarEstado(new EstadoAtacar(this));
