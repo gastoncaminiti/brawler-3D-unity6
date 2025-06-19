@@ -1,13 +1,15 @@
 using UnityEngine;
 public class EstadoAtacar : Estado
 {
+    private const string triggerName = "Ataque1";
+    
     public EstadoAtacar(MaquinaEstado maquinaEstado) : base(maquinaEstado)
     {
     }
 
     public override void Iniciar()
     {
-        maquinaEstado.Animador.SetTrigger("Atk_K_1"); 
+        maquinaEstado.Animador.SetTrigger(triggerName); 
     }
     
     public override void Actualizar(float deltaTime)
