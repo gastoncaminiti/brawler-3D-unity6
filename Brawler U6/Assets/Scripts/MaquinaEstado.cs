@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,8 +6,21 @@ public class MaquinaEstado : MonoBehaviour
 {
     [field:SerializeField]
     public Animator Animador { get; private set; }
+    [field: SerializeField] public CharacterController Controller { get; private set; }
+    [field: SerializeField] public float VelocidadMovimiento { get; private set; } = 5f;
+    
+    public Transform CamaraTransform { get; private set; }
     
     private Estado estadoActual;
+    private Vector2 inputMovimiento;
+    private bool blockInput; 
+    
+    private void Start()
+    {
+        blockInput = false;
+        CamaraTransform = Camera.main.transform;
+        CambiarEstado(new MoverEstado(this));
+    }
 
     private void Update()
     {
@@ -22,12 +36,28 @@ public class MaquinaEstado : MonoBehaviour
         estadoActual.Iniciar();
     }
     
+    public Vector2 ObtenerInputMovimiento()
+    {
+        return inputMovimiento;
+    }
     //========= Manejar eventos y cambiar de estado =========
     public void OnAttackState(InputAction.CallbackContext context)
     {
+        if (blockInput) return;
         if (!context.performed) return;
-        if (estadoActual?.EsEstado<EstadoAtacar>() == true) return;
         
-        CambiarEstado(new EstadoAtacar(this));
+        blockInput = true;
+        CambiarEstado(new EstadoAtacar(this));    
+        
+    }
+ 
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        inputMovimiento = context.ReadValue<Vector2>();
+    }
+
+    public void DesbloquearInput()
+    {
+        blockInput = false;
     }
 }

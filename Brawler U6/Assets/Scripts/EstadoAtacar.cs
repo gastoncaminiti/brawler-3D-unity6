@@ -1,20 +1,22 @@
 using UnityEngine;
 public class EstadoAtacar : Estado
 {
+    private readonly int ataqueHash = Animator.StringToHash("isAtaque");
+    
     public EstadoAtacar(MaquinaEstado maquinaEstado) : base(maquinaEstado)
     {
     }
 
     public override void Iniciar()
     {
-        maquinaEstado.Animador.SetTrigger("Atk_K_1"); 
+        maquinaEstado.Animador.SetBool(ataqueHash, true); 
     }
     
     public override void Actualizar(float deltaTime)
     {
-        var estadoActual = maquinaEstado.Animador.GetCurrentAnimatorStateInfo(0); // layer 0
+        var estadoActual = maquinaEstado.Animador.GetCurrentAnimatorStateInfo(0); 
 
-        if (estadoActual.normalizedTime >= 1f)
+        if (estadoActual.normalizedTime > 0.65f)
         {
             maquinaEstado.CambiarEstado(new MoverEstado(maquinaEstado));
         }
@@ -22,6 +24,7 @@ public class EstadoAtacar : Estado
 
     public override void Finalizar()
     {
-        Debug.Log("SALIR DE ESTADO");
+        maquinaEstado.Animador.SetBool(ataqueHash, false);
+        maquinaEstado.DesbloquearInput();
     }
 }
