@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -21,5 +20,13 @@ public class MaquinaEstado : MonoBehaviour
         estadoActual?.Finalizar();
         estadoActual = nuevoEstado;
         estadoActual.Iniciar();
+    }
+    
+    //========= Manejar eventos y cambiar de estado =========
+    public void OnAttackState(InputAction.CallbackContext context)
+    {
+        if (estadoActual?.EsEstado<EstadoAtacar>() == true) return;
+        
+        CambiarEstado(new EstadoAtacar(this));
     }
 }

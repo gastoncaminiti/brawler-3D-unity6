@@ -7,6 +7,7 @@ public class EstadoAtacar : Estado
 
     public override void Iniciar()
     {
+        Debug.Log(tipoEstado);
         maquinaEstado.Animador.SetTrigger("Atk_K_1"); 
     }
     
@@ -19,5 +20,4 @@ public class EstadoAtacar : Estado
     {
         Debug.Log("AL TERMINAR EL ATAQUE");
     }
-
 }

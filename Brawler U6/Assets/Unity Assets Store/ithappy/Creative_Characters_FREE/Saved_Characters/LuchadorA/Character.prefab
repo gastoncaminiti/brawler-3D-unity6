@@ -687,7 +687,7 @@ GameObject:
   - component: {fileID: 6451628726547447626}
   - component: {fileID: 9059361875188288498}
   - component: {fileID: 4316506307409221089}
-  - component: {fileID: 7390302824121368538}
+  - component: {fileID: 1215210373146933137}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -806,7 +806,7 @@ MonoBehaviour:
     m_ActionName: 'Player/Look[/Mouse/delta]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7390302824121368538}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerAttackState, Assembly-CSharp
         m_MethodName: OnAttackState
         m_Mode: 0
@@ -889,7 +889,7 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &7390302824121368538
+--- !u!114 &1215210373146933137
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -898,10 +898,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3456372052751831845}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdc02e124e3762a43a7aeb1879325a60, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d366ebecf0f1dc4bb22724a3d0bd076, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Animator: {fileID: 6451628726547447626}
+  <Animador>k__BackingField: {fileID: 6451628726547447626}
 --- !u!1 &3505761108929478883
 GameObject:
   m_ObjectHideFlags: 0
