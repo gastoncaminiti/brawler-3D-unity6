@@ -13,11 +13,17 @@ public class EstadoAtacar : Estado
     
     public override void Actualizar(float deltaTime)
     {
-        Debug.Log("MIENTRAS SE ATACA");
+        var estadoActual = maquinaEstado.Animador.GetCurrentAnimatorStateInfo(0); // layer 0
+
+        // Si la animación actual terminó (normalizedTime >= 1)
+        if (estadoActual.normalizedTime >= 1f)
+        {
+            maquinaEstado.CambiarEstado(new MoverEstado(maquinaEstado));
+        }
     }
 
     public override void Finalizar()
     {
-        Debug.Log("AL TERMINAR EL ATAQUE");
+        Debug.Log("SALIR DE ESTADO");
     }
 }

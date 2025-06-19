@@ -15,7 +15,7 @@ public class MaquinaEstado : MonoBehaviour
         estadoActual.Actualizar(Time.deltaTime);
     }
 
-    private void CambiarEstado(Estado nuevoEstado)
+    public void CambiarEstado(Estado nuevoEstado)
     {
         estadoActual?.Finalizar();
         estadoActual = nuevoEstado;
@@ -25,6 +25,7 @@ public class MaquinaEstado : MonoBehaviour
     //========= Manejar eventos y cambiar de estado =========
     public void OnAttackState(InputAction.CallbackContext context)
     {
+        if (!context.performed) return;
         if (estadoActual?.EsEstado<EstadoAtacar>() == true) return;
         
         CambiarEstado(new EstadoAtacar(this));
