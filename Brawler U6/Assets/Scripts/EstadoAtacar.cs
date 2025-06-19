@@ -7,7 +7,6 @@ public class EstadoAtacar : Estado
 
     public override void Iniciar()
     {
-        Debug.Log(tipoEstado);
         maquinaEstado.Animador.SetTrigger("Atk_K_1"); 
     }
     
@@ -15,7 +14,6 @@ public class EstadoAtacar : Estado
     {
         var estadoActual = maquinaEstado.Animador.GetCurrentAnimatorStateInfo(0); // layer 0
 
-        // Si la animación actual terminó (normalizedTime >= 1)
         if (estadoActual.normalizedTime >= 1f)
         {
             maquinaEstado.CambiarEstado(new MoverEstado(maquinaEstado));

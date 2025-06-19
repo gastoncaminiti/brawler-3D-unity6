@@ -9,7 +9,6 @@ public abstract class Estado
     {
         this.maquinaEstado = maquinaEstado;
         this.tipoEstado = this.GetType();
-        Debug.Log(this.tipoEstado.Name);
     }
   
     public bool EsEstado<Clase>() where Clase : Estado
