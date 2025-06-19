@@ -1,7 +1,7 @@
 using UnityEngine;
 public class EstadoAtacar : Estado
 {
-    private const string triggerName = "Ataque1";
+    private readonly int ataqueHash = Animator.StringToHash("isAtaque");
     
     public EstadoAtacar(MaquinaEstado maquinaEstado) : base(maquinaEstado)
     {
@@ -9,7 +9,7 @@ public class EstadoAtacar : Estado
 
     public override void Iniciar()
     {
-        maquinaEstado.Animador.SetTrigger(triggerName); 
+        maquinaEstado.Animador.SetBool(ataqueHash, true); 
     }
     
     public override void Actualizar(float deltaTime)
@@ -24,6 +24,7 @@ public class EstadoAtacar : Estado
 
     public override void Finalizar()
     {
+        maquinaEstado.Animador.SetBool(ataqueHash, false);
         maquinaEstado.DesbloquearInput();
     }
 }

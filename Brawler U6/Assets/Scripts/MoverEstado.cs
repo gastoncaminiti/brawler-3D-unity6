@@ -2,16 +2,11 @@ using UnityEngine;
 
 public class MoverEstado: Estado
 {
-    private const string triggerName = "Mover";
-    public MoverEstado(MaquinaEstado maquinaEstado) : base(maquinaEstado)
-    {   
-        maquinaEstado.Animador.SetFloat("State", 1);
-    }
+    public MoverEstado(MaquinaEstado maquinaEstado) : base(maquinaEstado){ }
 
     public override void Iniciar()
     {
-        Debug.Log("INICIAR ESTADO MOVER");
-        maquinaEstado.Animador.SetTrigger(triggerName); 
+        maquinaEstado.Animador.SetFloat("State", 1);
     }
 
     public override void Actualizar(float deltaTime)
