@@ -14,7 +14,7 @@ public class EstadoAtacar : Estado
     
     public override void Actualizar(float deltaTime)
     {
-        var estadoActual = maquinaEstado.Animador.GetCurrentAnimatorStateInfo(0); // layer 0
+        var estadoActual = maquinaEstado.Animador.GetCurrentAnimatorStateInfo(0); 
 
         if (estadoActual.normalizedTime >= 1f)
         {
@@ -24,6 +24,6 @@ public class EstadoAtacar : Estado
 
     public override void Finalizar()
     {
-        Debug.Log("SALIR DE ESTADO");
+        maquinaEstado.DesbloquearInput();
     }
 }

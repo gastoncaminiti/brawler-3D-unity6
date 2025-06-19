@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,7 +11,14 @@ public class MaquinaEstado : MonoBehaviour
     
     private Estado estadoActual;
     private Vector2 inputMovimiento;
+    private bool blockInput; 
     
+    private void Start()
+    {
+        blockInput = false;
+        CambiarEstado(new MoverEstado(this));
+    }
+
     private void Update()
     {
         if(estadoActual == null) return;
@@ -32,15 +40,21 @@ public class MaquinaEstado : MonoBehaviour
     //========= Manejar eventos y cambiar de estado =========
     public void OnAttackState(InputAction.CallbackContext context)
     {
+        if (blockInput) return;
         if (!context.performed) return;
         
-        if (estadoActual?.EsEstado<EstadoAtacar>() == true) return;
+        blockInput = true;
+        CambiarEstado(new EstadoAtacar(this));    
         
-        CambiarEstado(new EstadoAtacar(this));
     }
  
     public void OnMove(InputAction.CallbackContext context)
     {
         inputMovimiento = context.ReadValue<Vector2>();
+    }
+
+    public void DesbloquearInput()
+    {
+        blockInput = false;
     }
 }
